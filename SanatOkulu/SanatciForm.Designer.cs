@@ -32,6 +32,11 @@ namespace SanatOkulu
             this.label1 = new System.Windows.Forms.Label();
             this.txtAd = new System.Windows.Forms.TextBox();
             this.btnEkle = new System.Windows.Forms.Button();
+            this.lstSanatcilar = new System.Windows.Forms.ListBox();
+            this.btnKapat = new System.Windows.Forms.Button();
+            this.btnDuzenle = new System.Windows.Forms.Button();
+            this.btnIptal = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -47,24 +52,85 @@ namespace SanatOkulu
             // 
             this.txtAd.Location = new System.Drawing.Point(16, 32);
             this.txtAd.Name = "txtAd";
-            this.txtAd.Size = new System.Drawing.Size(151, 26);
+            this.txtAd.Size = new System.Drawing.Size(190, 26);
             this.txtAd.TabIndex = 1;
             // 
             // btnEkle
             // 
-            this.btnEkle.Location = new System.Drawing.Point(16, 64);
+            this.btnEkle.Location = new System.Drawing.Point(212, 30);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(151, 29);
+            this.btnEkle.Size = new System.Drawing.Size(84, 28);
             this.btnEkle.TabIndex = 2;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
             this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
+            // lstSanatcilar
+            // 
+            this.lstSanatcilar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstSanatcilar.FormattingEnabled = true;
+            this.lstSanatcilar.ItemHeight = 20;
+            this.lstSanatcilar.Location = new System.Drawing.Point(16, 66);
+            this.lstSanatcilar.Name = "lstSanatcilar";
+            this.lstSanatcilar.Size = new System.Drawing.Size(371, 324);
+            this.lstSanatcilar.TabIndex = 11;
+            // 
+            // btnKapat
+            // 
+            this.btnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKapat.Location = new System.Drawing.Point(288, 396);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Size = new System.Drawing.Size(99, 29);
+            this.btnKapat.TabIndex = 6;
+            this.btnKapat.Text = "KAPAT";
+            this.btnKapat.UseVisualStyleBackColor = true;
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
+            // 
+            // btnDuzenle
+            // 
+            this.btnDuzenle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDuzenle.Location = new System.Drawing.Point(121, 396);
+            this.btnDuzenle.Name = "btnDuzenle";
+            this.btnDuzenle.Size = new System.Drawing.Size(99, 29);
+            this.btnDuzenle.TabIndex = 7;
+            this.btnDuzenle.Text = "DÜZENLE";
+            this.btnDuzenle.UseVisualStyleBackColor = true;
+            this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
+            // 
+            // btnIptal
+            // 
+            this.btnIptal.Location = new System.Drawing.Point(302, 30);
+            this.btnIptal.Name = "btnIptal";
+            this.btnIptal.Size = new System.Drawing.Size(84, 28);
+            this.btnIptal.TabIndex = 8;
+            this.btnIptal.Text = "İPTAL";
+            this.btnIptal.UseVisualStyleBackColor = true;
+            this.btnIptal.Visible = false;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSil.Location = new System.Drawing.Point(16, 396);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(99, 29);
+            this.btnSil.TabIndex = 9;
+            this.btnSil.Text = "SİL";
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
             // SanatciForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(183, 107);
+            this.ClientSize = new System.Drawing.Size(399, 431);
+            this.Controls.Add(this.lstSanatcilar);
+            this.Controls.Add(this.btnKapat);
+            this.Controls.Add(this.btnDuzenle);
+            this.Controls.Add(this.btnIptal);
+            this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.txtAd);
             this.Controls.Add(this.label1);
@@ -83,5 +149,10 @@ namespace SanatOkulu
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAd;
         private System.Windows.Forms.Button btnEkle;
+        private System.Windows.Forms.ListBox lstSanatcilar;
+        private System.Windows.Forms.Button btnKapat;
+        private System.Windows.Forms.Button btnDuzenle;
+        private System.Windows.Forms.Button btnIptal;
+        private System.Windows.Forms.Button btnSil;
     }
 }

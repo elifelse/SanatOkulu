@@ -74,7 +74,6 @@ namespace SanatOkulu
             // 
             // pboYeniSanatci
             // 
-            this.pboYeniSanatci.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pboYeniSanatci.ErrorImage = null;
             this.pboYeniSanatci.Image = global::SanatOkulu.Properties.Resources.pluss;
             this.pboYeniSanatci.Location = new System.Drawing.Point(219, 120);
@@ -153,6 +152,7 @@ namespace SanatOkulu
             this.lvwEserler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvwEserler.BackColor = System.Drawing.SystemColors.MenuBar;
             this.lvwEserler.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -197,6 +197,7 @@ namespace SanatOkulu
             this.tsmiSanatcilar.Name = "tsmiSanatcilar";
             this.tsmiSanatcilar.Size = new System.Drawing.Size(86, 24);
             this.tsmiSanatcilar.Text = "Sanatçılar";
+            this.tsmiSanatcilar.Click += new System.EventHandler(this.tsmiSanatcilar_Click);
             // 
             // Form1
             // 
