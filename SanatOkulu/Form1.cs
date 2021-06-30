@@ -83,8 +83,8 @@ namespace SanatOkulu
                 {
                     duzenlenen.Resim = Yardimci.ResimKaydet(ofdResim.FileName);
                 }
-            }       
-            
+            }
+
             db.SaveChanges();
             FormuResetle();
             EserleriListele();
@@ -94,14 +94,29 @@ namespace SanatOkulu
         {
             lvwEserler.Items.Clear();
 
+            ImageList largeImageList = new ImageList();
+            largeImageList.ImageSize = new Size(128, 128);
+
+            ImageList smallImageList = new ImageList();
+            smallImageList.ImageSize = new Size(25, 25);
+
             foreach (Eser eser in db.Eserler.OrderBy(x => x.Yil))
             {
                 ListViewItem lvi = new ListViewItem(eser.Ad);
                 lvi.SubItems.Add(eser.Sanatci.Ad);
                 lvi.SubItems.Add(eser.Yil.ToString());
                 lvi.Tag = eser;
+                if (eser.Resim != null)
+                {
+                    largeImageList.Images.Add(eser.Resim, Yardimci.ResimGetir(eser.Resim));
+                    smallImageList.Images.Add(eser.Resim, Yardimci.ResimGetir(eser.Resim));
+                }
+                lvi.ImageKey = eser.Resim;
                 lvwEserler.Items.Add(lvi);
             }
+
+            lvwEserler.LargeImageList = largeImageList;
+            lvwEserler.SmallImageList = smallImageList;
         }
 
         private void FormuResetle()
@@ -140,7 +155,7 @@ namespace SanatOkulu
                     db.Eserler.Remove(eser);
                     db.SaveChanges();
                     EserleriListele();
-                }                
+                }
             }
         }
 
@@ -172,6 +187,50 @@ namespace SanatOkulu
             {
                 pboResim.Image = Image.FromFile(ofdResim.FileName);
             }
+        }
+
+        private void cboGorunum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboGorunum.SelectedIndex == -1) return;
+
+            switch ((string)cboGorunum.SelectedItem)
+            {
+                case "Büyük Simgeler":
+                    lvwEserler.View = View.LargeIcon;
+                    break;
+                case "Küçük Simgeler":
+                    lvwEserler.View = View.SmallIcon;
+                    break;
+                case "listele":
+                    lvwEserler.View = View.List;
+                    break;
+                case "Ayrıntılar":
+                    lvwEserler.View = View.Details;
+                    break;
+                case "Döşemeler":
+                    lvwEserler.View = View.Tile;
+                    break;
+                default:
+                    lvwEserler.View = View.Details;
+                    break;
+            }
+        }
+
+        private void tsmiResmiYeniPenceredeAc_Click(object sender, EventArgs e)
+        {
+            if (lvwEserler.SelectedItems.Count != 1) return;
+
+            Eser eser = (Eser)lvwEserler.SelectedItems[0].Tag;
+            string tanim = eser.Sanatci.Ad + " - " + eser.Ad;
+
+            if (eser.Resim == null) return;
+
+            new ResimForm(tanim, Yardimci.ResimGetir(eser.Resim)).Show();
+        }
+
+        private void cmsEserler_Opening(object sender, CancelEventArgs e)
+        {
+            e.Cancel = lvwEserler.SelectedItems.Count != 1;
         }
     }
 }
