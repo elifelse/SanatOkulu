@@ -11,7 +11,8 @@ namespace SanatOkulu.Models
     {
         public SanatOkuluContext() : base("name=BaglantiCumlem")
         {
-
+            // Initialize Strategy (İleride bunun yerine migrationlar kullanılacak)
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<SanatOkuluContext>());
         }
 
         public DbSet<Sanatci> Sanatcilar { get; set; }

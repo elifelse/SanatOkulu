@@ -15,6 +15,10 @@ namespace SanatOkulu.Models
         [Required, MaxLength(50)]
         public string Ad { get; set; }
         public int? Yil { get; set; }
+
+        [MaxLength(255)]
+        public string Resim { get; set; }
+
         // Sanatci + Id : Sanatci enetity'sinin Id'sine referans veren bir FK
         public int SanatciId { get; set; }
 

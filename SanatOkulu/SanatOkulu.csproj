@@ -66,6 +66,7 @@
     <Compile Include="Models\Eser.cs" />
     <Compile Include="Models\Sanatci.cs" />
     <Compile Include="Models\SanatOkuluContext.cs" />
+    <Compile Include="Models\Yardimci.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanatciForm.cs">
