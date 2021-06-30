@@ -225,10 +225,6 @@ namespace SanatOkulu
             this.tsmiSanatcilar.Text = "Sanatçılar";
             this.tsmiSanatcilar.Click += new System.EventHandler(this.tsmiSanatcilar_Click);
             // 
-            // ofdResim
-            // 
-            this.ofdResim.FileName = "openFileDialog1";
-            // 
             // pboResim
             // 
             this.pboResim.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -239,7 +235,7 @@ namespace SanatOkulu
             this.pboResim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboResim.TabIndex = 8;
             this.pboResim.TabStop = false;
-            this.pboResim.Click += new System.EventHandler(this.pboResim_Click);
+            this.pboResim.DoubleClick += new System.EventHandler(this.pboResim_DoubleClick);
             // 
             // label5
             // 
